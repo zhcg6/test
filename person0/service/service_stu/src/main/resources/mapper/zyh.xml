@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.person.stuservice.mapper.ZyhMapper">
+    <insert id="save">
+        insert into zyh(username,password,address,age,sex,phonenumber,permission,name)
+        values(#{username},#{password},#{address},#{age},#{sex},#{phonenumber},#{permission},#{name})
+    </insert>
+    <update id="update">
+        update zyh set password = #{password} where username = #{username}
+    </update>
+    <update id="updateUser">
+        update zyh set name = #{name},address = #{address},age = #{age} where username = #{username}
+    </update>
+    <select id="list" resultType="com.person.stuservice.entity.Zyh">
+        select * from zyh
+    </select>
+    <select id="select" resultType="java.lang.String">
+        select password from zyh where username = #{username}
+    </select>
+    <select id="selectId" resultType="java.lang.String">
+        select username from zyh where username = #{username}
+    </select>
+    <select id="getNumber" resultType="java.lang.String">
+        select phonenumber from zyh where username = #{username}
+    </select>
+    <select id="getPhoneNumber" resultType="java.lang.String">
+        select phonenumber from zyh where phonenumber = #{phonenumber}
+    </select>
+    <select id="listUser" resultType="com.person.stuservice.entity.Zyh">
+        select * from zyh where username = #{username}
+    </select>
+    <select id="getUsername" resultType="java.lang.String">
+        select username from zyh where phonenumber = #{phonenumber}
+    </select>
+    <select id="selectPermission" resultType="java.lang.String">
+        select permission from  zyh where username = #{username}
+    </select>
+
+
+</mapper>
